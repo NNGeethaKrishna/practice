@@ -11,8 +11,20 @@ public class dijkstra {
 //1.create an adjacency list
 //2.distance array to store the shortest distances 
 //3.source distance will be 0
-//4.priority queue to always pick up the shortest distance through and fill the distance array
+//4.priority queue(min heap) to always pick up the shortest distance through and fill the distance array
 
+//why bfs fails here? because bfs is used to find the shortest path in unweighted graphs, it does not take into account the weights of the edges, so it may not find the shortest path in a weighted graph. Dijkstra's algorithm, on the other hand, takes into account the weights of the edges and finds the shortest path in a weighted graph.
+//time complexity: O((V + E) log V) where V is the number of vertices and E is the number of edges
+//space complexity: O(V + E) for the adjacency list and O(V) for the distance array and priority queue
+//Dijkstra's algorithm is a greedy algorithm that finds the shortest path from a source node to all other nodes in a weighted graph with non-negative weights. It works by maintaining a priority queue of nodes to explore, always selecting the node with the smallest known distance from the source. The algorithm updates the distances to neighboring nodes and continues until all nodes have been processed.
+//why negative weights are not allowed? because Dijkstra's algorithm assumes that once a node's shortest distance is found, it will not change. If there are negative weights, a shorter path to a node may be found after it has already been processed, which violates this assumption and can lead to incorrect results. For graphs with negative weights, the Bellman-Ford algorithm is used instead.
+//relaxation: the process of updating the shortest distance to a node if a shorter path is found through another node. In Dijkstra's algorithm, this is done by checking if the new calculated distance to a neighbor is less than the currently recorded distance, and if so, updating it and adding the neighbor to the priority queue for further exploration.
+
+
+//problems to solve:
+//1.LeetCode 787 :cheapest flights within k stops (node is not enough to solve this problem, we need to use a modified version of Dijkstra's algorithm that takes into account the number of stops. We can use a priority queue to keep track of the current cost and the number of stops taken to reach each node. We will also maintain a distance array to store the minimum cost to reach each node(dist[nodes][k+2],where k+2 represents the number of stops). The algorithm will explore the graph while keeping track of the number of stops and updating the minimum cost accordingly.)
+//2.LeetCode 743 :network delay time
+//3.LeetCode 1631 :path with minimum effort
 public static void main(String[] args) {
     int[] distances = shortestPaths(0, 5, new int[][]{
         {0, 1, 10},
