@@ -25,6 +25,8 @@ public class dijkstra {
 //1.LeetCode 787 :cheapest flights within k stops (node is not enough to solve this problem, we need to use a modified version of Dijkstra's algorithm that takes into account the number of stops. We can use a priority queue to keep track of the current cost and the number of stops taken to reach each node. We will also maintain a distance array to store the minimum cost to reach each node(dist[nodes][k+2],where k+2 represents the number of stops). The algorithm will explore the graph while keeping track of the number of stops and updating the minimum cost accordingly.)
 //2.LeetCode 743 :network delay time
 //3.LeetCode 1631 :path with minimum effort
+//0-1 bfs if there are only two diffrrrent types of weights ,use dequeue
+//if weights of all the edges are different use dijkstra , if all weights are equal use BFS 
 public static void main(String[] args) {
     int[] distances = shortestPaths(0, 5, new int[][]{
         {0, 1, 10},
