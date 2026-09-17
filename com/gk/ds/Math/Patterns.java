@@ -1,4 +1,4 @@
-package com.gk.ds.Basics;
+package com.gk.ds.Math;
 
 import java.util.Scanner;
 
